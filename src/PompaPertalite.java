@@ -1,19 +1,20 @@
 // Pompa Pertalite dengan layanan pembayaran dan loyalitas pelanggan.
+
 public class PompaPertalite extends PompaBahanBakar implements Pembayaran, LayananDigital {
-    // Akumulasi poin loyalitas pelanggan.
+    // Akumulasi poin loyalitas pelanggan
     private int poin;
 
-    // Konfigurasi pompa Pertalite tanpa stok awal.
+    // Konfigurasi pompa Pertalite tanpa stok awal
     public PompaPertalite(String kodePompa) {
         super(kodePompa, "Pertalite", HARGA_PERTALITE, 0);
     }
 
-    // Konfigurasi pompa Pertalite dengan stok awal tertentu.
+    // Konfigurasi pompa Pertalite dengan stok awal tertentu
     public PompaPertalite(String kodePompa, int stokAwal) {
         super(kodePompa, "Pertalite", HARGA_PERTALITE, stokAwal);
     }
 
-    // Memvalidasi stok sebelum menyalurkan Pertalite.
+    // Memvalidasi stok sebelum menyalurkan Pertalite
     @Override
     public void salurkan(int liter) {
         if (liter > 0 && getStokLiter() >= liter) {
@@ -25,14 +26,14 @@ public class PompaPertalite extends PompaBahanBakar implements Pembayaran, Layan
         }
     }
 
-    // Menampilkan informasi pompa beserta poin pelanggan.
+    // Menampilkan informasi pompa beserta poin pelanggan
     @Override
     public void tampilkanInfo() {
         super.tampilkanInfo();
         System.out.println("[Pompa " + getKodePompa() + "] Poin pelanggan: " + poin);
     }
 
-    // Memproses pembayaran dan menambahkan poin pelanggan.
+    // Memproses pembayaran dan menambahkan poin pelanggan
     @Override
     public void bayar(int liter, double nominal) {
         double total = hitungTotal(liter);
@@ -46,7 +47,7 @@ public class PompaPertalite extends PompaBahanBakar implements Pembayaran, Layan
         }
     }
 
-    // Menghitung kembalian pembayaran pelanggan.
+    // Menghitung kembalian pembayaran pelanggan
     @Override
     public double hitungKembalian(int liter, double nominal) {
         if (nominal >= hitungTotal(liter)) {
@@ -56,7 +57,7 @@ public class PompaPertalite extends PompaBahanBakar implements Pembayaran, Layan
         }
     }
 
-    // Mencetak struk digital untuk pelanggan.
+    // Mencetak struk digital untuk pelanggan
     @Override
     public void cetakStruk() {
         System.out.println("===== STRUK DIGITAL PERTALITE =====");
@@ -69,7 +70,7 @@ public class PompaPertalite extends PompaBahanBakar implements Pembayaran, Layan
         System.out.println("Poin pelanggan: " + poin);
     }
 
-    // Mengambil saldo poin pelanggan.
+    // Mengambil saldo poin pelanggan
     @Override
     public int getPoin() {
         return poin;
