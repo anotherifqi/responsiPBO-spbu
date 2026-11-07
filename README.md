@@ -37,4 +37,5 @@ java -cp bin Main
 ## Screenshot Luaran Program
 Berikut adalah bukti eksekusi program yang memvalidasi jalannya kesepuluh persyaratan teknis di atas:
 
-![Screenshot Luaran Terminal](assets/screenshot.jpg)
+![Screenshot Luaran Terminal](assets/screenshot_1.png)
+![Screenshot Luaran Terminal](assets/screenshot_2.png)
